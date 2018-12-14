@@ -1,4 +1,4 @@
-# API-Project
+# API-Recycle-Project-Unit-3
 Using Earth911 API to access data on recyclable objects.  
 - Developer will parse JSON to Swift 
 - App will use table view to display cell's 
