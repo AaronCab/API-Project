@@ -7,3 +7,7 @@ Using Earth911 API to access data on recyclable objects.
 - Search bar will filter through cell's in table view to find specific object
 - When user selects the cell, the table view will segue to a detail view
 - The detail will contain a brief description of the object and how it can be recycled
+
+Objectives: 
+- Create working App for educational purposes
+- Shed light on possible recycling objects
