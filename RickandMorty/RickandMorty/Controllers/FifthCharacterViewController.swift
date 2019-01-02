@@ -26,6 +26,7 @@ class FifthCharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fifthCharacterTableView.dataSource = self
+        fifthCharacterTableView.delegate = self
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         searchPage(pageCount: "5")
@@ -75,4 +76,9 @@ extension FifthCharacterViewController: UISearchBarDelegate {
         
     }
 
+}
+extension FifthCharacterViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }

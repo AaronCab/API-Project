@@ -26,10 +26,10 @@ class FirstCharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         firstCharacterTableView.dataSource = self
+        firstCharacterTableView.delegate = self
         searchBar.delegate = self
         searchPage(pageCount: "1")
         searchBar.autocapitalizationType = .none
-        dump(results)
        
     }
     
@@ -75,6 +75,11 @@ extension FirstCharacterViewController: UISearchBarDelegate {
                 return
         }
        
+    }
+}
+extension FirstCharacterViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 

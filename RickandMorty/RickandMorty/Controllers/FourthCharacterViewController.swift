@@ -26,6 +26,7 @@ class FourthCharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fourthCharacterTableView.dataSource = self
+        fourthCharacterTableView.delegate = self
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         searchPage(pageCount: "4")
@@ -75,4 +76,9 @@ extension FourthCharacterViewController: UISearchBarDelegate {
         
     }
 
+}
+extension FourthCharacterViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }

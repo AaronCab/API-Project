@@ -25,6 +25,7 @@ class ThirdCharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         thirdCharacterTableView.dataSource = self
+        thirdCharacterTableView.delegate = self
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         searchPage(pageCount: "3")
@@ -74,4 +75,9 @@ extension ThirdCharacterViewController: UISearchBarDelegate {
         
     }
 
+}
+extension ThirdCharacterViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }

@@ -26,6 +26,7 @@ class SecondCharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         secondCharacterTableView.dataSource = self
+        secondCharacterTableView.delegate = self
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         searchPage(pageCount: "2")
@@ -76,4 +77,9 @@ extension SecondCharacterViewController: UISearchBarDelegate {
         
     }
 
+}
+extension SecondCharacterViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
