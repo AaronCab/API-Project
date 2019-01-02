@@ -24,19 +24,30 @@ class ThirdDetailViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateUI()
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func updateUI(){
+        nameLabel?.text = "Name: \(resultThree.name)"
+        originLabel?.text = "Origin: \(resultThree.origin.name)"
+        genderLabel?.text = "Gender: \(resultThree.gender)"
+        locationLabel?.text = "Location: \(resultThree.location.name)"
+        statusLabel?.text = "Status: \(resultThree.status)"
+        
+        if let url = resultThree?.image {
+            ImageHelper.fetchImage(urlString: url) { (error, image) in
+                if let error = error {
+                    print(error.errorMessage())
+                } else if let image = image {
+                    self.characterImage.image = image
+                }
+            }
+        } else {
+            characterImage.image = UIImage(named: "rickM")
+        }
+        
     }
-    */
 
 }

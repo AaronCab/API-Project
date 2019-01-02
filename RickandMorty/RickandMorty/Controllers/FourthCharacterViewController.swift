@@ -28,6 +28,7 @@ class FourthCharacterViewController: UIViewController {
         fourthCharacterTableView.dataSource = self
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
+        searchPage(pageCount: "4")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,7 +37,15 @@ class FourthCharacterViewController: UIViewController {
         let result = results[indexPath.row]
         characterDetailController.resultFour = result
     }
-    
+    private func searchPage(pageCount: String) {
+        APIClient.getCharacters(pageCount: pageCount) { (error, results) in
+            if let error = error {
+                print(error.errorMessage())
+            } else if let results = results {
+                self.results = results
+            }
+        }
+    }
     
 }
 

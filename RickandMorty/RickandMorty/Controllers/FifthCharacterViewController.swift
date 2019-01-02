@@ -28,6 +28,7 @@ class FifthCharacterViewController: UIViewController {
         fifthCharacterTableView.dataSource = self
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
+        searchPage(pageCount: "5")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,7 +37,15 @@ class FifthCharacterViewController: UIViewController {
         let result = results[indexPath.row]
         characterDetailController.resultFive = result
     }
-    
+    private func searchPage(pageCount: String) {
+        APIClient.getCharacters(pageCount: pageCount) { (error, results) in
+            if let error = error {
+                print(error.errorMessage())
+            } else if let results = results {
+                self.results = results
+            }
+        }
+    }
     
 }
 
@@ -46,7 +55,7 @@ extension FifthCharacterViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "firstCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fifthCell", for: indexPath)
         let result = results[indexPath.row]
         cell.textLabel?.text = result.name
         cell.detailTextLabel?.text = result.species

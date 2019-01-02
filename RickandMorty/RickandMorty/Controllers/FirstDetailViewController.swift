@@ -26,8 +26,27 @@ class FirstDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateUI()
     }
-    
+    private func updateUI(){
+        nameLabel?.text = "Name: \(resultOne.name)"
+        originLabel?.text = "Origin: \(resultOne.origin.name)"
+        genderLabel?.text = "Gender: \(resultOne.gender)"
+        locationLabel?.text = "Location: \(resultOne.location.name)"
+        statusLabel?.text = "Status: \(resultOne.status)"
+        
+            if let url = resultOne?.image {
+            ImageHelper.fetchImage(urlString: url) { (error, image) in
+                if let error = error {
+                    print(error.errorMessage())
+                } else if let image = image {
+                    self.characterImage.image = image
+                }
+            }
+        } else {
+            characterImage.image = UIImage(named: "rickM")
+        }
+        
+    }
 
 }

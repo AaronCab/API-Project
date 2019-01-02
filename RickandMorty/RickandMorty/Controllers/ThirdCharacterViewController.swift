@@ -27,6 +27,7 @@ class ThirdCharacterViewController: UIViewController {
         thirdCharacterTableView.dataSource = self
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
+        searchPage(pageCount: "3")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,7 +36,15 @@ class ThirdCharacterViewController: UIViewController {
         let result = results[indexPath.row]
         characterDetailController.resultThree = result
     }
-    
+    private func searchPage(pageCount: String) {
+        APIClient.getCharacters(pageCount: pageCount) { (error, results) in
+            if let error = error {
+                print(error.errorMessage())
+            } else if let results = results {
+                self.results = results
+            }
+        }
+    }
     
 }
 

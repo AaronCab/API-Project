@@ -28,6 +28,7 @@ class SecondCharacterViewController: UIViewController {
         secondCharacterTableView.dataSource = self
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
+        searchPage(pageCount: "2")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,6 +36,15 @@ class SecondCharacterViewController: UIViewController {
             let characterDetailController = segue.destination as? SecondDetailViewController else { fatalError("indexPath, meeetupDetailController nil")}
         let result = results[indexPath.row]
         characterDetailController.resultTwo = result
+    }
+    private func searchPage(pageCount: String) {
+        APIClient.getCharacters(pageCount: pageCount) { (error, results) in
+            if let error = error {
+                print(error.errorMessage())
+            } else if let results = results {
+                self.results = results
+            }
+        }
     }
     
     

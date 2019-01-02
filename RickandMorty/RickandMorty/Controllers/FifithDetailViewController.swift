@@ -26,19 +26,29 @@ class FifithDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateUI()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func updateUI(){
+        nameLabel?.text = "Name: \(resultFive.name)"
+        originLabel?.text = "Origin: \(resultFive.origin.name)"
+        genderLabel?.text = "Gender: \(resultFive.gender)"
+        locationLabel?.text = "Location: \(resultFive.location.name)"
+        statusLabel?.text = "Status: \(resultFive.status)"
+        
+        if let url = resultFive?.image {
+            ImageHelper.fetchImage(urlString: url) { (error, image) in
+                if let error = error {
+                    print(error.errorMessage())
+                } else if let image = image {
+                    self.characterImage.image = image
+                }
+            }
+        } else {
+            characterImage.image = UIImage(named: "rickM")
+        }
+        
     }
-    */
 
 }
