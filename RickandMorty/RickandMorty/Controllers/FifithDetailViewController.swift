@@ -48,7 +48,7 @@ class FifithDetailViewController: UIViewController {
         } else {
             characterImage.image = UIImage(named: "rickM")
         }
-        
+        view.backgroundColor =  UIColor.init(red: (136/255), green: (185/255), blue: (240/255), alpha: 1)
     }
 
 }

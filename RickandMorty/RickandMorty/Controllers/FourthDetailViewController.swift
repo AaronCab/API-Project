@@ -50,6 +50,6 @@ class FourthDetailViewController: UIViewController {
         } else {
             characterImage.image = UIImage(named: "rickM")
         }
-        
+        view.backgroundColor = UIColor.init(red: (52/255), green: (236/255), blue: (101/255), alpha: 1)
     }
 }

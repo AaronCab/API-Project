@@ -47,7 +47,7 @@ class ThirdDetailViewController: UIViewController {
         } else {
             characterImage.image = UIImage(named: "rickM")
         }
-        
+        view.backgroundColor = UIColor.init(red: (4/255), green: (213/255), blue: (136/255), alpha: 1)
     }
 
 }

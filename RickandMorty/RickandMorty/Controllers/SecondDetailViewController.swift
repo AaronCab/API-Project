@@ -49,7 +49,7 @@ class SecondDetailViewController: UIViewController {
         } else {
             characterImage.image = UIImage(named: "rickM")
         }
-        
+        view.backgroundColor = UIColor.init(red: (10/255), green: (247/255), blue: (152/255), alpha: 1)
     }
 
 }
