@@ -1,5 +1,5 @@
 //
-//  FifthCharacterViewController.swift
+//  ViewController.swift
 //  RickandMorty
 //
 //  Created by Aaron Cabreja on 1/1/19.
@@ -8,37 +8,38 @@
 
 import UIKit
 
-class FifthCharacterViewController: UIViewController {
+class FirstCharacterViewController: UIViewController {
 
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
-    @IBOutlet weak var fifthCharacterTableView: UITableView!
+    @IBOutlet weak var firstCharacterTableView: UITableView!
     
     private var results = [Result](){
-        didSet {
+        didSet { 
             DispatchQueue.main.async {
-                self.fifthCharacterTableView.reloadData()
+                self.firstCharacterTableView.reloadData()
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fifthCharacterTableView.dataSource = self
-        fifthCharacterTableView.delegate = self
+        firstCharacterTableView.dataSource = self
+        firstCharacterTableView.delegate = self
         searchBar.delegate = self
+        searchPage(pageCount: "1")
         searchBar.autocapitalizationType = .none
-        searchPage(pageCount: "5")
+       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = fifthCharacterTableView.indexPathForSelectedRow,
-            let characterDetailController = segue.destination as? FifithDetailViewController else { fatalError("indexPath, meeetupDetailController nil")}
+        guard let indexPath = firstCharacterTableView.indexPathForSelectedRow,
+            let characterDetailController = segue.destination as? FirstDetailViewController else { fatalError("indexPath, meeetupDetailController nil")}
         let result = results[indexPath.row]
-        characterDetailController.resultFive = result
+        characterDetailController.resultOne = result
     }
-    private func searchPage(pageCount: String) {
+     func searchPage(pageCount: String) {
         APIClient.getCharacters(pageCount: pageCount) { (error, results) in
             if let error = error {
                 print(error.errorMessage())
@@ -47,38 +48,42 @@ class FifthCharacterViewController: UIViewController {
             }
         }
     }
-    
+
 }
 
-extension FifthCharacterViewController: UITableViewDataSource {
+extension FirstCharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "fifthCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "firstCell", for: indexPath)
         let result = results[indexPath.row]
         cell.textLabel?.text = result.name
         cell.detailTextLabel?.text = result.species
-        cell.backgroundColor = UIColor.init(red: (136/255), green: (185/255), blue: (240/255), alpha: 1)
+        cell.backgroundColor = UIColor.init(red: (10/255), green: (247/255), blue: (240/255), alpha: 1)
         return cell
     }
 }
 
-extension FifthCharacterViewController: UISearchBarDelegate {
+extension FirstCharacterViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder() // dismiss the keyboard
         guard let searchText = searchBar.text,
             !searchText.isEmpty,
-            let searchTextEncoded = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
-                return
+            let searchTextEncoded = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return searchPage(pageCount: "1")}
+                results = results.filter{$0.name.contains(searchTextEncoded.capitalized)}
+            
         }
-        
     }
 
-}
-extension FifthCharacterViewController: UITableViewDelegate {
+extension FirstCharacterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }
+
+
+
+
+

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FifthCharacterViewController.swift
 //  RickandMorty
 //
 //  Created by Aaron Cabreja on 1/1/19.
@@ -8,36 +8,35 @@
 
 import UIKit
 
-class FirstCharacterViewController: UIViewController {
+class FifthCharacterViewController: UIViewController {
 
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
-    @IBOutlet weak var firstCharacterTableView: UITableView!
+    
+    @IBOutlet weak var fifthCharacterTableView: UITableView!
     
     private var results = [Result](){
-        didSet { 
+        didSet {
             DispatchQueue.main.async {
-                self.firstCharacterTableView.reloadData()
+                self.fifthCharacterTableView.reloadData()
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstCharacterTableView.dataSource = self
-        firstCharacterTableView.delegate = self
+        fifthCharacterTableView.dataSource = self
+        fifthCharacterTableView.delegate = self
         searchBar.delegate = self
-        searchPage(pageCount: "1")
         searchBar.autocapitalizationType = .none
-       
+        searchPage(pageCount: "5")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = firstCharacterTableView.indexPathForSelectedRow,
-            let characterDetailController = segue.destination as? FirstDetailViewController else { fatalError("indexPath, meeetupDetailController nil")}
+        guard let indexPath = fifthCharacterTableView.indexPathForSelectedRow,
+            let characterDetailController = segue.destination as? FifithDetailViewController else { fatalError("indexPath, meeetupDetailController nil")}
         let result = results[indexPath.row]
-        characterDetailController.resultOne = result
+        characterDetailController.resultFive = result
     }
     private func searchPage(pageCount: String) {
         APIClient.getCharacters(pageCount: pageCount) { (error, results) in
@@ -48,42 +47,38 @@ class FirstCharacterViewController: UIViewController {
             }
         }
     }
-
+    
 }
 
-extension FirstCharacterViewController: UITableViewDataSource {
+extension FifthCharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "firstCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fifthCell", for: indexPath)
         let result = results[indexPath.row]
         cell.textLabel?.text = result.name
         cell.detailTextLabel?.text = result.species
-        cell.backgroundColor = UIColor.init(red: (10/255), green: (247/255), blue: (240/255), alpha: 1)
+        cell.backgroundColor = UIColor.init(red: (136/255), green: (185/255), blue: (240/255), alpha: 1)
         return cell
     }
 }
 
-extension FirstCharacterViewController: UISearchBarDelegate {
+extension FifthCharacterViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder() // dismiss the keyboard
         guard let searchText = searchBar.text,
             !searchText.isEmpty,
             let searchTextEncoded = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
-                return
+                return 
         }
-       
+        
     }
+
 }
-extension FirstCharacterViewController: UITableViewDelegate {
+extension FifthCharacterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }
-
-
-
-
-

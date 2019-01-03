@@ -63,6 +63,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		938A773621DE71D500F7A4E1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93F2A6DC21DC46D200D844BE /* FirstCharacterViewController.swift */,
+				93F2A6F921DC50AB00D844BE /* SecondCharacterViewController.swift */,
+				93F2A6FB21DC514400D844BE /* ThirdCharacterViewController.swift */,
+				93F2A6FD21DC519300D844BE /* FourthCharacterViewController.swift */,
+				93F2A6FF21DC52CA00D844BE /* FifthCharacterViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		938A773721DE71EB00F7A4E1 /* Detail Views */ = {
+			isa = PBXGroup;
+			children = (
+				93F2A70221DC6AAD00D844BE /* FirstDetailViewController.swift */,
+				93F2A70421DC6ABB00D844BE /* SecondDetailViewController.swift */,
+				93F2A70621DC6AD200D844BE /* ThirdDetailViewController.swift */,
+				93F2A70821DC6AE200D844BE /* FourthDetailViewController.swift */,
+				93F2A70A21DC6AF500D844BE /* FifithDetailViewController.swift */,
+			);
+			path = "Detail Views";
+			sourceTree = "<group>";
+		};
 		93F2A6CE21DC46D200D844BE = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +119,8 @@
 		93F2A6F621DC4C2C00D844BE /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
-				93F2A6EE21DC4B4D00D844BE /* NewtorkHelper.swift */,
 				93F2A6F021DC4BF100D844BE /* AppError.swift */,
+				93F2A6EE21DC4B4D00D844BE /* NewtorkHelper.swift */,
 				93F2A6F221DC4C0000D844BE /* APIClient.swift */,
 				93F2A6F421DC4C1B00D844BE /* ImageHelper.swift */,
 			);
@@ -124,16 +148,8 @@
 		93F2A70121DC52DC00D844BE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				93F2A6DC21DC46D200D844BE /* FirstCharacterViewController.swift */,
-				93F2A70221DC6AAD00D844BE /* FirstDetailViewController.swift */,
-				93F2A6F921DC50AB00D844BE /* SecondCharacterViewController.swift */,
-				93F2A70421DC6ABB00D844BE /* SecondDetailViewController.swift */,
-				93F2A6FB21DC514400D844BE /* ThirdCharacterViewController.swift */,
-				93F2A70621DC6AD200D844BE /* ThirdDetailViewController.swift */,
-				93F2A6FD21DC519300D844BE /* FourthCharacterViewController.swift */,
-				93F2A70821DC6AE200D844BE /* FourthDetailViewController.swift */,
-				93F2A6FF21DC52CA00D844BE /* FifthCharacterViewController.swift */,
-				93F2A70A21DC6AF500D844BE /* FifithDetailViewController.swift */,
+				938A773621DE71D500F7A4E1 /* View Controllers */,
+				938A773721DE71EB00F7A4E1 /* Detail Views */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
