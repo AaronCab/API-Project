@@ -70,9 +70,8 @@ extension FourthCharacterViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder() // dismiss the keyboard
         guard let searchText = searchBar.text,
             !searchText.isEmpty,
-            let searchTextEncoded = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
-                return
-        }
+            let searchTextEncoded = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return searchPage(pageCount: "4")}
+        results = results.filter{$0.name.contains(searchTextEncoded.capitalized)}
         
     }
 
