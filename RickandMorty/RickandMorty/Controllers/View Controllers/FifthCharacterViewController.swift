@@ -30,6 +30,10 @@ class FifthCharacterViewController: UIViewController {
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         searchPage(pageCount: "5")
+        let backButton = UIBarButtonItem()
+        backButton.title = "Char 100"
+        navigationItem.backBarButtonItem = backButton
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

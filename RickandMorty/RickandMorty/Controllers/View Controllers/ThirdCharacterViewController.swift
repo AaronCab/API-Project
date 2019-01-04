@@ -29,6 +29,10 @@ class ThirdCharacterViewController: UIViewController {
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         searchPage(pageCount: "3")
+        let backButton = UIBarButtonItem()
+        backButton.title = "Char 60"
+        navigationItem.backBarButtonItem = backButton
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

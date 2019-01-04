@@ -30,7 +30,9 @@ class FirstCharacterViewController: UIViewController {
         searchBar.delegate = self
         searchPage(pageCount: "1")
         searchBar.autocapitalizationType = .none
-       
+        let backButton = UIBarButtonItem()
+        backButton.title = "Char 20"
+        navigationItem.backBarButtonItem = backButton
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -30,6 +30,10 @@ class FourthCharacterViewController: UIViewController {
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         searchPage(pageCount: "4")
+        let backButton = UIBarButtonItem()
+        backButton.title = "Char 80"
+        navigationItem.backBarButtonItem = backButton
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
