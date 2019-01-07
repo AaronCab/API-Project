@@ -30,6 +30,10 @@ class SecondCharacterViewController: UIViewController {
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         searchPage(pageCount: "2")
+        navigationController?.navigationBar.backgroundColor = UIColor.init(red: (105/255), green: (191/255), blue: (198/255), alpha: 1)
+        
+        navigationController?.tabBarController?.tabBar.barTintColor = UIColor.init(red: (105/255), green: (191/255), blue: (198/255), alpha: 1)
+
         let backButton = UIBarButtonItem()
         backButton.title = "Char 40"
         navigationItem.backBarButtonItem = backButton
@@ -59,6 +63,8 @@ extension SecondCharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
+    //https://stackoverflow.com/questions/27817932/tableviewcell-animation-in-swift
+    //creates spiral cell animation
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         //1. Setup the CATransform3D structure
         var rotation = CATransform3DMakeRotation( CGFloat((90.0 * M_PI)/180), 0.0, 0.7, 0.4);

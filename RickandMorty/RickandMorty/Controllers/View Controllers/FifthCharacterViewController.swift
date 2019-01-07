@@ -30,6 +30,10 @@ class FifthCharacterViewController: UIViewController {
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         searchPage(pageCount: "5")
+        navigationController?.navigationBar.backgroundColor = UIColor.init(red: (105/255), green: (191/255), blue: (198/255), alpha: 1)
+        
+        navigationController?.tabBarController?.tabBar.barTintColor = UIColor.init(red: (105/255), green: (191/255), blue: (198/255), alpha: 1)
+
         let backButton = UIBarButtonItem()
         backButton.title = "Char 100"
         navigationItem.backBarButtonItem = backButton

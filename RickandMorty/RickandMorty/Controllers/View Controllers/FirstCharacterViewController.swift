@@ -31,7 +31,7 @@ class FirstCharacterViewController: UIViewController {
         searchBar.delegate = self
         searchPage(pageCount: "1")
         searchBar.autocapitalizationType = .none
-        navigationController?.navigationBar.backgroundColor = UIColor.init(red: (2/255), green: (112/255), blue: (127/255), alpha: 1)
+        navigationController?.navigationBar.backgroundColor = UIColor.init(red: (105/255), green: (191/255), blue: (198/255), alpha: 1)
 
         navigationController?.tabBarController?.tabBar.barTintColor = UIColor.init(red: (105/255), green: (191/255), blue: (198/255), alpha: 1)
 
@@ -83,6 +83,9 @@ extension FirstCharacterViewController: UITableViewDataSource {
                     cell.imageView?.image = image
                 }
             }
+        
+        //https://stackoverflow.com/questions/27817932/tableviewcell-animation-in-swift
+        //creates zoom in cell animation
         cell.imageView?.layer.cornerRadius = 65
         cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
         UIView.animate(withDuration: 0.3, animations: {

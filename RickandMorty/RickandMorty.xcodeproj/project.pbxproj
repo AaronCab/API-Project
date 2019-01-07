@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		938A778121E4089000F7A4E1 /* rickM.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 938A778021E4088F00F7A4E1 /* rickM.jpeg */; };
 		93F2A6DB21DC46D200D844BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F2A6DA21DC46D200D844BE /* AppDelegate.swift */; };
 		93F2A6DD21DC46D200D844BE /* FirstCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F2A6DC21DC46D200D844BE /* FirstCharacterViewController.swift */; };
 		93F2A6E021DC46D200D844BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93F2A6DE21DC46D200D844BE /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		938A778021E4088F00F7A4E1 /* rickM.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = rickM.jpeg; path = ../../../rickM.jpeg; sourceTree = "<group>"; };
 		93F2A6D721DC46D200D844BE /* RickandMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickandMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F2A6DA21DC46D200D844BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93F2A6DC21DC46D200D844BE /* FirstCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCharacterViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				93F2A6F721DC4E5000D844BE /* Models */,
 				93F2A6F621DC4C2C00D844BE /* NetworkServices */,
 				93F2A6E621DC46D300D844BE /* Info.plist */,
+				938A778021E4088F00F7A4E1 /* rickM.jpeg */,
 			);
 			path = RickandMorty;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				938A778121E4089000F7A4E1 /* rickM.jpeg in Resources */,
 				93F2A6E521DC46D300D844BE /* LaunchScreen.storyboard in Resources */,
 				93F2A6E221DC46D300D844BE /* Assets.xcassets in Resources */,
 				93F2A6E021DC46D200D844BE /* Main.storyboard in Resources */,
