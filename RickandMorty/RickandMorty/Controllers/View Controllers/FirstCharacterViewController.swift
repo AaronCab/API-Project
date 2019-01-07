@@ -30,6 +30,11 @@ class FirstCharacterViewController: UIViewController {
         searchBar.delegate = self
         searchPage(pageCount: "1")
         searchBar.autocapitalizationType = .none
+        navigationController?.navigationBar.backgroundColor = UIColor.init(red: (2/255), green: (112/255), blue: (127/255), alpha: 1)
+
+        navigationController?.tabBarController?.tabBar.barTintColor = UIColor.init(red: (105/255), green: (191/255), blue: (198/255), alpha: 1)
+
+        
         let backButton = UIBarButtonItem()
         backButton.title = "Char 20"
         navigationItem.backBarButtonItem = backButton
