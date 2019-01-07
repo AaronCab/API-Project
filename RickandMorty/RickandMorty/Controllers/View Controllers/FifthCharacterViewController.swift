@@ -58,6 +58,7 @@ extension FifthCharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
+  
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fifthCell", for: indexPath)
@@ -79,7 +80,14 @@ extension FifthCharacterViewController: UITableViewDataSource {
             }
         }
         cell.imageView?.layer.cornerRadius = 65
-
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animate(withDuration: 0.3, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1.05,1.05,1)
+        },completion: { finished in
+            UIView.animate(withDuration: 0.1, animations: {
+                cell.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
+        })
         return cell
     }
 }
