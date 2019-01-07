@@ -63,7 +63,15 @@ extension ThirdCharacterViewController: UITableViewDataSource {
         let result = results[indexPath.row]
         cell.textLabel?.text = result.name
         cell.detailTextLabel?.text = result.species
-        cell.backgroundColor = UIColor.init(red: (4/255), green: (213/255), blue: (136/255), alpha: 1)
+        if indexPath.row % 2 == 1 {
+            cell.backgroundColor = UIColor.init(red: (4/255), green: (213/255), blue: (136/255), alpha: 1)
+            cell.imageView?.image = UIImage(named: "rick-and-morty")
+
+        } else {
+             cell.backgroundColor = UIColor.init(red: (52/255), green: (236/255), blue: (101/255), alpha: 1)
+            cell.imageView?.image = UIImage(named: "Rick-and-Morty-S02E06-The-Ricks-Must-Be-Crazy-Peace-Among-Worlds")
+
+        }
         return cell
     }
 }

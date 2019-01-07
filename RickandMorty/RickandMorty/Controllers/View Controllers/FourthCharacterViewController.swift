@@ -64,7 +64,15 @@ extension FourthCharacterViewController: UITableViewDataSource {
         let result = results[indexPath.row]
         cell.textLabel?.text = result.name
         cell.detailTextLabel?.text = result.species
-        cell.backgroundColor = UIColor.init(red: (52/255), green: (236/255), blue: (101/255), alpha: 1)
+        if indexPath.row % 2 == 1 {
+           cell.backgroundColor = UIColor.init(red: (52/255), green: (236/255), blue: (101/255), alpha: 1)
+            cell.imageView?.image = UIImage(named: "Rick-and-Morty-S02E06-The-Ricks-Must-Be-Crazy-Peace-Among-Worlds")
+
+        } else {
+            cell.backgroundColor = UIColor.init(red: (136/255), green: (185/255), blue: (240/255), alpha: 1)
+            cell.imageView?.image = UIImage(named: "rick_and_morty_s02_still.0")
+
+        }
         return cell
     }
 }
