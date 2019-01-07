@@ -67,13 +67,21 @@ extension SecondCharacterViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = result.species
         if indexPath.row % 2 == 1 {
             cell.backgroundColor = UIColor.init(red: (10/255), green: (247/255), blue: (152/255), alpha: 1)
-            cell.imageView?.image = UIImage(named: "rickM")
 
         } else {
             cell.backgroundColor = UIColor.init(red: (4/255), green: (213/255), blue: (136/255), alpha: 1)
-            cell.imageView?.image = UIImage(named: "rick-and-morty")
 
         }
+        let url = result.image
+        ImageHelper.fetchImage(urlString: url) { (error, image) in
+            if let error = error {
+                print(error.errorMessage())
+            } else if let image = image {
+                cell.imageView?.image = image
+            }
+        }
+        cell.imageView?.layer.cornerRadius = 65
+
         return cell
     }
 }
@@ -91,6 +99,6 @@ extension SecondCharacterViewController: UISearchBarDelegate {
 }
 extension SecondCharacterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 125
     }
 }

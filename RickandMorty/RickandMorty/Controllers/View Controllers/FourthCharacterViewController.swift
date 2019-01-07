@@ -66,13 +66,21 @@ extension FourthCharacterViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = result.species
         if indexPath.row % 2 == 1 {
            cell.backgroundColor = UIColor.init(red: (52/255), green: (236/255), blue: (101/255), alpha: 1)
-            cell.imageView?.image = UIImage(named: "Rick-and-Morty-S02E06-The-Ricks-Must-Be-Crazy-Peace-Among-Worlds")
 
         } else {
             cell.backgroundColor = UIColor.init(red: (136/255), green: (185/255), blue: (240/255), alpha: 1)
-            cell.imageView?.image = UIImage(named: "rick_and_morty_s02_still.0")
 
         }
+        let url = result.image
+        ImageHelper.fetchImage(urlString: url) { (error, image) in
+            if let error = error {
+                print(error.errorMessage())
+            } else if let image = image {
+                cell.imageView?.image = image
+            }
+        }
+        cell.imageView?.layer.cornerRadius = 65
+
         return cell
     }
 }
@@ -90,6 +98,6 @@ extension FourthCharacterViewController: UISearchBarDelegate {
 }
 extension FourthCharacterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 125
     }
 }
