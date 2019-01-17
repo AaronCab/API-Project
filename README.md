@@ -1,4 +1,4 @@
-# API-Rick&Morty-Project-Unit-3
+# API-Rick&Morty-Project
 Using Rick and Morty API to access data on characters.  
 - Developer will parse JSON to Swift 
 - App will use table view to display cell's 
